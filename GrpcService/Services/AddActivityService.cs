@@ -46,7 +46,7 @@ namespace GrpcService.Services
                 {
                     UserId = System.Guid.Parse(request.UserId),
                     Text = request.Text,
-                    Date = DateTime.ParseExact(request.Date, "yyyy-MM-dd HH:mm tt", null),
+                    Date = DateTime.Parse(request.Date),
                 Type = t
                 };
 
