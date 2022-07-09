@@ -6,6 +6,7 @@ using Dislinkt.AdminDashboard.MongoDB.Entities;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Dislinkt.AdminDashboard.MongoDB.Repositories
@@ -20,9 +21,11 @@ namespace Dislinkt.AdminDashboard.MongoDB.Repositories
         }
 
 
-        public Task<IReadOnlyList<Activity>> GetAll()
+        public async Task<IReadOnlyCollection<Activity>> GetAllAsync()
         {
-            return Task.FromResult((IReadOnlyList<Activity>)_queryExecutor.GetAll<ActivityEntity>());
+            var result = await _queryExecutor.GetAll<ActivityEntity>();
+
+            return result?.AsEnumerable().Select(s => s.ToActivity()).ToArray() ?? Array.Empty<Activity>();
         }
 
         public async Task CreateActivity(NewActivityData activity)

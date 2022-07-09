@@ -1,13 +1,22 @@
+using Dislinkt.AdminDashboard.Interfaces.Repositories;
+using Dislinkt.AdminDashboard.MongoDB.Common;
+using Dislinkt.AdminDashboard.MongoDB.Factories;
+using Dislinkt.AdminDashboard.MongoDB.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json.Serialization;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
+using MongoDB.Bson.Serialization.Serializers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Text.Json.Serialization;
 
 namespace Dislinkt.AdminDashboard
 {
@@ -23,7 +32,31 @@ namespace Dislinkt.AdminDashboard
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages();
+            services.AddControllers();          // Add this service too
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    builder =>
+                    {
+                        builder.WithOrigins("https://localhost:44351", "http://localhost:4200")
+                            .AllowAnyHeader()
+                            .AllowCredentials()
+                            .AllowAnyMethod();
+                    });
+            });
+            services.AddMvcCore();
+            services.AddControllers().AddNewtonsoftJson(opt =>
+            {
+                opt.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            }).AddJsonOptions(options =>
+                options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter())); ;
+
+            services.AddScoped<IDatabaseFactory, DatabaseFactory>();
+            services.AddScoped<MongoDbContext>();
+            services.AddScoped<IQueryExecutor, QueryExecutor>();
+            services.AddScoped<IActivityRepository, ActivityRepository>();
+            BsonSerializer.RegisterSerializer(new GuidSerializer(BsonType.String));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,15 +74,26 @@ namespace Dislinkt.AdminDashboard
             }
 
             app.UseHttpsRedirection();
+            app.UseCors(builder =>
+            {
+                builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+            });
             app.UseStaticFiles();
 
             app.UseRouting();
 
             app.UseAuthorization();
 
+            app.UseRouting();
+            app.UseAuthentication();
+            app.UseAuthorization();
+
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapRazorPages();
+                endpoints.MapControllers();
             });
         }
     }

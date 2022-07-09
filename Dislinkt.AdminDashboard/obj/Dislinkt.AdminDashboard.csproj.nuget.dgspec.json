@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Natalija\\OneDrive\\Documents\\Dislinkt\\Dislinkt.AdminDashboard\\Dislinkt.AdminDashboard\\Dislinkt.AdminDashboard.csproj": {}
+    "C:\\Users\\Natalija\\OneDrive\\Desktop\\Dislinkt\\Dislinkt.AdminDashboard\\Dislinkt.AdminDashboard\\Dislinkt.AdminDashboard.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Natalija\\OneDrive\\Documents\\Dislinkt\\Dislinkt.AdminDashboard\\Dislinkt.AdminDashboard\\Dislinkt.AdminDashboard.csproj": {
+    "C:\\Users\\Natalija\\OneDrive\\Desktop\\Dislinkt\\Dislinkt.AdminDashboard\\Dislinkt.AdminDashboard\\Dislinkt.AdminDashboard.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Natalija\\OneDrive\\Documents\\Dislinkt\\Dislinkt.AdminDashboard\\Dislinkt.AdminDashboard\\Dislinkt.AdminDashboard.csproj",
+        "projectUniqueName": "C:\\Users\\Natalija\\OneDrive\\Desktop\\Dislinkt\\Dislinkt.AdminDashboard\\Dislinkt.AdminDashboard\\Dislinkt.AdminDashboard.csproj",
         "projectName": "Dislinkt.AdminDashboard",
-        "projectPath": "C:\\Users\\Natalija\\OneDrive\\Documents\\Dislinkt\\Dislinkt.AdminDashboard\\Dislinkt.AdminDashboard\\Dislinkt.AdminDashboard.csproj",
+        "projectPath": "C:\\Users\\Natalija\\OneDrive\\Desktop\\Dislinkt\\Dislinkt.AdminDashboard\\Dislinkt.AdminDashboard\\Dislinkt.AdminDashboard.csproj",
         "packagesPath": "C:\\Users\\Natalija\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Natalija\\OneDrive\\Documents\\Dislinkt\\Dislinkt.AdminDashboard\\Dislinkt.AdminDashboard\\obj\\",
+        "outputPath": "C:\\Users\\Natalija\\OneDrive\\Desktop\\Dislinkt\\Dislinkt.AdminDashboard\\Dislinkt.AdminDashboard\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Natalija\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -48,6 +48,10 @@
               "target": "Package",
               "version": "[3.1.24, )"
             },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[3.1.24, )"
+            },
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
               "version": "[1.15.1, )"
@@ -55,6 +59,10 @@
             "MongoDB.Driver": {
               "target": "Package",
               "version": "[2.16.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
             }
           },
           "imports": [

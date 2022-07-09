@@ -9,7 +9,7 @@ namespace Dislinkt.AdminDashboard.Interfaces.Repositories
     {
         Task CreateActivity(NewActivityData activity);
 
-        Task<IReadOnlyList<Activity>> GetAll();
+        Task<IReadOnlyCollection<Activity>> GetAllAsync();
 
     }
 }
