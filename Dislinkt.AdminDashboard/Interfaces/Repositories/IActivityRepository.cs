@@ -8,7 +8,7 @@ namespace Dislinkt.AdminDashboard.Interfaces.Repositories
 {
     public interface IActivityRepository
     {
-        Task CreateActivity(NewActivityData activity);
+        Task<bool> CreateActivity(NewActivityData activity);
 
         Task<IReadOnlyCollection<Activity>> GetAllAsync();
 

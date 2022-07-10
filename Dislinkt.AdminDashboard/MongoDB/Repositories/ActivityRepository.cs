@@ -28,7 +28,7 @@ namespace Dislinkt.AdminDashboard.MongoDB.Repositories
             return result?.AsEnumerable().Select(s => s.ToActivity()).ToArray() ?? Array.Empty<Activity>();
         }
 
-        public async Task CreateActivity(NewActivityData activity)
+        public async Task<bool> CreateActivity(NewActivityData activity)
         {
             try
             {
@@ -36,8 +36,9 @@ namespace Dislinkt.AdminDashboard.MongoDB.Repositories
             }
             catch (MongoWriteException ex)
             {
-                throw ex;
+                return false;
             }
+            return true;
 
         }
 
