@@ -3,6 +3,7 @@ using Dislinkt.AdminDashboard.Data;
 using Dislinkt.AdminDashboard.Domain;
 using Dislinkt.AdminDashboard.Interfaces.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -32,6 +33,15 @@ namespace Dislinkt.AdminDashboard.Contollers
         public async Task<IReadOnlyCollection<Activity>> GetAllInterestsAsync()
         {
             return await _activityRepository.GetAllAsync();
+        }
+
+        [HttpDelete]
+        [Route("/delete-by-userId")]
+        public async Task DeleteByUserId(Guid userId)
+        {
+            await _activityRepository.DeleteByUserId(userId);
+
+
         }
     }
 }

@@ -41,5 +41,12 @@ namespace Dislinkt.AdminDashboard.MongoDB.Repositories
 
         }
 
+        public async Task DeleteByUserId(Guid userId)
+        {
+            var filter = Builders<ActivityEntity>.Filter.Eq(u => u.UserId, userId);
+            await _queryExecutor.DeleteByIdAsync<ActivityEntity>(filter);
+        }
+
+
     }
 }
