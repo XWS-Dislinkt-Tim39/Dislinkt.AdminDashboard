@@ -10,10 +10,10 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
 WORKDIR /src
-COPY ["Dislinkt.AdminDashboard/Dislinkt.AdminDashboard.csproj", "Dislinkt.AdminDashboard/"]
-RUN dotnet restore "Dislinkt.AdminDashboard/Dislinkt.AdminDashboard.csproj"
+COPY ["./Dislinkt.AdminDashboard/Dislinkt.AdminDashboard/Dislinkt.AdminDashboard.csproj", "Dislinkt.AdminDashboard/"]
+
 COPY . .
-WORKDIR "/src/Dislinkt.AdminDashboard"
+WORKDIR "./Dislinkt.AdminDashboard/Dislinkt.AdminDashboard"
 RUN dotnet build "Dislinkt.AdminDashboard.csproj" -c Release -o /app/build
 
 FROM build AS publish
