@@ -24,8 +24,8 @@ namespace Dislinkt.AdminDashboard.Contollers
         [Route("/create-activity")]
         public async Task<bool> CreateActivity([FromBody] NewActivityData activity)
         {
-           return  await _activityRepository.CreateActivity(activity);
-
+            return  await _activityRepository.CreateActivity(activity);
+            //return false;
         }
 
         [HttpGet]

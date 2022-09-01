@@ -21,7 +21,12 @@ namespace GrpcService
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                    webBuilder.UseUrls("https://localhost:5003");
+                    //webBuilder.UseUrls("http://localhost:5003");
+                    webBuilder.ConfigureKestrel(options =>
+                    {
+                        options.ListenAnyIP(80, o => o.Protocols = Microsoft.AspNetCore.Server.Kestrel.Core.HttpProtocols.Http1);
+                        options.ListenAnyIP(5003, o => o.Protocols = Microsoft.AspNetCore.Server.Kestrel.Core.HttpProtocols.Http2);
+                    });
                 });
     }
 }

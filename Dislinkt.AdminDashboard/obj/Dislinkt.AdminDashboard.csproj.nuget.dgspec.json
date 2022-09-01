@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Natalija\\OneDrive\\Desktop\\Dislinkt\\Dislinkt.AdminDashboard\\Dislinkt.AdminDashboard\\Dislinkt.AdminDashboard.csproj": {}
+    "/Users/predragdespotovic/Faks/XML/Projekat/Dislinkt.AdminDashboard/Dislinkt.AdminDashboard/Dislinkt.AdminDashboard.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Natalija\\OneDrive\\Desktop\\Dislinkt\\Dislinkt.AdminDashboard\\Dislinkt.AdminDashboard\\Dislinkt.AdminDashboard.csproj": {
+    "/Users/predragdespotovic/Faks/XML/Projekat/Dislinkt.AdminDashboard/Dislinkt.AdminDashboard/Dislinkt.AdminDashboard.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Natalija\\OneDrive\\Desktop\\Dislinkt\\Dislinkt.AdminDashboard\\Dislinkt.AdminDashboard\\Dislinkt.AdminDashboard.csproj",
+        "projectUniqueName": "/Users/predragdespotovic/Faks/XML/Projekat/Dislinkt.AdminDashboard/Dislinkt.AdminDashboard/Dislinkt.AdminDashboard.csproj",
         "projectName": "Dislinkt.AdminDashboard",
-        "projectPath": "C:\\Users\\Natalija\\OneDrive\\Desktop\\Dislinkt\\Dislinkt.AdminDashboard\\Dislinkt.AdminDashboard\\Dislinkt.AdminDashboard.csproj",
-        "packagesPath": "C:\\Users\\Natalija\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Natalija\\OneDrive\\Desktop\\Dislinkt\\Dislinkt.AdminDashboard\\Dislinkt.AdminDashboard\\obj\\",
+        "projectPath": "/Users/predragdespotovic/Faks/XML/Projekat/Dislinkt.AdminDashboard/Dislinkt.AdminDashboard/Dislinkt.AdminDashboard.csproj",
+        "packagesPath": "/Users/predragdespotovic/.nuget/packages/",
+        "outputPath": "/Users/predragdespotovic/Faks/XML/Projekat/Dislinkt.AdminDashboard/Dislinkt.AdminDashboard/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Natalija\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/predragdespotovic/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -71,10 +69,25 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.10, 3.1.10]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.osx-x64",
+              "version": "[3.1.28, 3.1.28]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -83,7 +96,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.400/RuntimeIdentifierGraph.json"
         }
       }
     }
