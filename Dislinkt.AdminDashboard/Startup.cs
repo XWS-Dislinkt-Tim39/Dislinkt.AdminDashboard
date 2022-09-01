@@ -17,6 +17,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Text.Json.Serialization;
+using Dislinkt.AdminDashboard.GrpcService.Services;
+using Microsoft.AspNetCore.Http;
 
 namespace Dislinkt.AdminDashboard
 {
@@ -45,6 +47,7 @@ namespace Dislinkt.AdminDashboard
                     });
             });
             services.AddMvcCore();
+            services.AddGrpc();
             services.AddControllers().AddNewtonsoftJson(opt =>
             {
                 opt.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
@@ -90,10 +93,16 @@ namespace Dislinkt.AdminDashboard
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
-
+            app.UseGrpcWeb();
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapGrpcService<AddActivityService>().EnableGrpcWeb();
                 endpoints.MapControllers();
+                endpoints.MapGet("/", async context =>
+                {
+                    await context.Response.WriteAsync("Communication with gRPC endpoints must be made through a gRPC client. To learn how to create a client, visit: https://go.microsoft.com/fwlink/?linkid=2086909");
+                });
+
             });
         }
     }

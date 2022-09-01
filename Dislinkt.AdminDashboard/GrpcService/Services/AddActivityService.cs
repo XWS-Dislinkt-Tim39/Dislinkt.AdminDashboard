@@ -1,14 +1,13 @@
-﻿using Dislinkt.AdminDashboard.Data;
-using Dislinkt.AdminDashboard.Domain;
+﻿using System;
+using Dislinkt.AdminDashboard.Data;
 using Dislinkt.AdminDashboard.Interfaces.Repositories;
-using Grpc.Core;
-using GrpcAddActivityService;
-using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using GrpcAddActivityService;
+using Grpc.Core;
 using Type = Dislinkt.AdminDashboard.Domain.Type;
 
-namespace GrpcService.Services
+namespace Dislinkt.AdminDashboard.GrpcService.Services
 {
     public class AddActivityService : addActivityGreeter.addActivityGreeterBase
     {
@@ -34,11 +33,11 @@ namespace GrpcService.Services
             }
             else if (request.Type == "Connection")
             {
-                t =Type.Connection;
+                t = Type.Connection;
             }
             else if (request.Type == "Registration")
             {
-                t =Type.Registration;
+                t = Type.Registration;
             }
             try
             {
@@ -47,7 +46,7 @@ namespace GrpcService.Services
                     UserId = System.Guid.Parse(request.UserId),
                     Text = request.Text,
                     Date = DateTime.Parse(request.Date),
-                Type = t
+                    Type = t
                 };
 
                 await _activityRepository.CreateActivity(activity);
@@ -68,7 +67,8 @@ namespace GrpcService.Services
                 Message = $"Notifikacija: {request.UserId} | {request.Text} | {request.Type} | {request.Date}"
             });
         }
-           
-        
+
+
     }
 }
+
